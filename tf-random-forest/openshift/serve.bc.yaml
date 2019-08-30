@@ -1,0 +1,44 @@
+---
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: forest-mnist-serve
+  annotations:
+    description: >
+      Source-to-Image (S2I) builder image for training a TF model
+  labels:
+    component: serving
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: forest-mnist-serve:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      uri: https://gitlab.com/vpavlin/hybrid-data-engineering-workshop.git
+      ref: tf-job
+    contextDir: tf-random-forest/serve
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: registry.access.redhat.com/ubi7/python-36
+    type: Source
+  triggers:
+    - type: ConfigChange
+status:
+  lastVersion: 0
+---
+kind: ImageStream
+apiVersion: v1
+metadata:
+  name: forest-mnist-serve
+  labels:
+    component: serving
+spec:
+  lookupPolicy:
+    local: true

@@ -1,0 +1,84 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: forest-mnist-serve
+  labels:
+    component: serving
+    app: forest-mnist
+objects:
+- apiVersion: machinelearning.seldon.io/v1alpha2
+  kind: SeldonDeployment
+  metadata:
+    name: forest-mnist
+    labels:
+      component: serving
+    annotations:
+      image.alpha.openshift.io/triggers: forest-mnist-serve
+      alpha.image.policy.openshift.io/resolve-names: "*"
+  spec:
+    annotations:
+      deployment_version: "${MODEL_VERSION}"
+    name: forest-mnist
+    predictors:
+    - annotations:
+          predictor_version: "0.1"
+      componentSpecs:
+      - spec:
+          containers:
+            - name: forest-experiment
+              image: forest-mnist-serve
+              env:
+                - name: MODEL_VERSION
+                  value: "${MODEL_VERSION}"
+                - name: MODEL_NAME
+                  value: "${MODEL_NAME}"
+                - name: S3_ENDPOINT_URL
+                  value: "${S3_ENDPOINT_URL}"
+                - name: AWS_ACCESS_KEY_ID
+                  value: "${AWS_ACCESS_KEY_ID}"
+                - name: AWS_SECRET_ACCESS_KEY
+                  value: "${AWS_SECRET_ACCESS_KEY}"
+                - name: BUCKET_NAME
+                  value: "${BUCKET_NAME}"
+      graph:
+        children: []
+        endpoint:
+          type: REST
+        name: forest-experiment
+        type: MODEL
+      name: predictor
+      replicas: 1
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    name: forest-mnist
+    labels:
+      component: serving
+  spec:
+    port:
+      targetPort: http
+    to:
+      kind: Service
+      name: forest-mnist-forest-mnist
+    tls:
+      insecureEdgeTerminationPolicy: Allow
+      termination: edge
+parameters:
+- name: MODEL_NAME
+  description: Name of the model to be served
+  value: ForestMnist
+- name: MODEL_VERSION
+  description: Version of the model to be served
+  value: "1"
+- name: S3_ENDPOINT_URL
+  description: Endpoint for S3 API object storage
+  required: true
+- name: AWS_ACCESS_KEY_ID
+  description: S3 access key id
+  required: true
+- name: AWS_SECRET_ACCESS_KEY
+  description: S3 secret key
+  required: true
+- name: BUCKET_NAME
+  description: A name of an S3 bucket where the model is stored
+  value: RHTE
