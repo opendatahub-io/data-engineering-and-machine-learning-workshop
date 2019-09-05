@@ -47,12 +47,26 @@ In order to get started with the Open Data Hub, you need to deploy it into your 
             user:info
     This is just Jupyter Hub's authentication system asking for permission to get access to the user:info data. The user needs to select "Allow selected permissions"
 
-3. JupyterHub is used in the Open Data Hub for spawning Jupyter notebook servers with pre-installed tools for creating AI and machine learning models. For more information on Jupyter notebooks, visit [https://jupyter.org/](https://jupyter.org/). Once logged in, click on `Start my Server`. You will be redirected to a page with a number of prefilled/ selected fields. You don't need to change any settings -- just hit the `Spawn button`. This may take a few moments to complete and you will be redirected to a Jupyter notebook server. The default settings are as follows.
+3. JupyterHub is used in the Open Data Hub for spawning Jupyter notebook servers with pre-installed tools for creating AI and machine learning models. For more information on Jupyter notebooks, visit [https://jupyter.org/](https://jupyter.org/). Once logged in, click on `Start my Server`. You will be redirected to a page with a number of prefilled/selected fields. You don't need to change any settings -- just hit the `Spawn button`. This may take a few moments to complete and you will be redirected to a Jupyter notebook server. The default settings are as follows.
 ![defaults](../images/defaults.png)
 
 4. Open the `hybrid-data-engineering.ipynb` notebook by clicking on it. It can be found under `odh-hybrid-data-workshop/source/Notebooks/` This will open the notebook in Jupyter.  The notebook will contain the rest of the instructions for the tutorial.
 
 5. Notebooks contain *cells*.  Run each cell in your notebook by clicking on the `>| Run` button or hitting `Shift+Enter` for each cell, starting with the first.  When a cell is actively running, it will have `[*]` on the side.  Some cells will take time to run.  Once done, it will have a number, such as `[1]`.  You can go through the entire notebook until all cells are run.
+
+## Training and Serving Tensorflow model
+
+1. You used `s2i-spark-scipy-notebook:3.6` for the previous part. As will work with Tensorflow in this section, you ned to switch the notebook image to `s2i-tensorflow-notebook:3.6` to run your container from an image with the correct preinstalled dependencies.
+
+    To do that click `Control Panel` in the top right corner of the Jupyter UI and then click `Stop My Server`.
+
+2. Once you see the `Spawner Options` form again, change the notebook image to `s2i-tensorflow-notebook:3.6`.
+
+3. You will also need your OpenShift Token in `TOKEN` environment variable. Go back to OpenShift console and click your username in top right corner and select `Copy Login Command`. You will be prompted to login again and after that you will see `Display Token` link. You will see your token after you click on the link.
+
+    Copy the token and go back to JupyterHub UI. Put `TOKEN` in `Variable name` and paste the token into `Variable value` field and click `Start my Server` to apply these changes and start your Jupyter instance again.
+
+4. Open the `tf-training-serving.ipynb` notebook in `source/notebooks`. This notebook contains all the information needed to finish this section.
 
 ## Streaming Data and Monitoring Infrastructure
 

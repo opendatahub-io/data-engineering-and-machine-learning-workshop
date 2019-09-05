@@ -6,5 +6,5 @@ As part of the workshop, we will deploy the Open Data Hub and cover the entire e
 * Deployment of a Ceph S3 instance for storage of data.
 * Usage of Jupyter notebooks and spark to interact with data sets using the S3A filesystem client on different clouds.
 * Using Spark schema detection and SparkSQL to query and transform stored data.
-* Deployment of a simple model as well as the supporting messaging tools for interacting with the model.
+* Training and deployment of a simple model as well as the supporting messaging tools for interacting with the model.
 * Monitoring of the entire infrastructure as well as deployed models with Prometheus and Grafana.

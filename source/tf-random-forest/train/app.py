@@ -18,9 +18,7 @@ import logging
 _LOGGER = logging.getLogger()
 _LOGGER.setLevel(logging.INFO)
 
-# Ignore all GPUs, tf random forest does not benefit from it.
 import os, sys
-os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 tf.reset_default_graph()
 

@@ -20,7 +20,7 @@ spec:
     git:
       uri: https://gitlab.com/vpavlin/hybrid-data-engineering-workshop.git
       ref: tf-job
-    contextDir: tf-random-forest/train
+    contextDir: source/tf-random-forest/train
     type: Git
   strategy:
     sourceStrategy:
