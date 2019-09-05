@@ -23,7 +23,7 @@ objects:
           effect: NoSchedule
         containers:
         - name: forest-mnist-train
-          image: python-36-ubi7
+          image: forest-mnist-train:gpu
           env:
             - name: MODEL_NAME
               value: "${MODEL_NAME}"

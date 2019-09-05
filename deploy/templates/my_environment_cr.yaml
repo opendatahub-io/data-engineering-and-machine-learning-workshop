@@ -8,9 +8,9 @@ spec:
     # Deploy the ODH aicoe-jupyterhub role if True
     odh_deploy: true
     notebook_memory: 2Gi
-    deploy_all_notebooks: False
-    registry: ''
-    repository: ''
+    deploy_all_notebooks: true
+    registry: 'quay.io'
+    repository: 'odh-jupyterhub'
     storage_class: ''
     db_memory: 1Gi
     jupyterhub_memory: 1Gi
@@ -82,4 +82,7 @@ spec:
 
   # Deployment of Two Sigma's BeakerX Jupyter notebook
   beakerx:
+    odh_deploy: false
+
+  ai-library:
     odh_deploy: false
