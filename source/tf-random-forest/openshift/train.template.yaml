@@ -1,0 +1,62 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: forest-mnist-train
+  labels:
+    component: training
+    app: forest-mnist
+objects:
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    name: forest-mnist-train-${MODEL_VERSION}
+    labels:
+      component: training
+    annotations:
+      image.alpha.openshift.io/triggers: forest-mnist-train
+      alpha.image.policy.openshift.io/resolve-names: "*"
+  spec:
+    template:
+      spec:
+        containers:
+        - name: forest-mnist-train
+          image: forest-mnist-train
+          env:
+            - name: MODEL_NAME
+              value: "${MODEL_NAME}"
+            - name: MODEL_VERSION
+              value: "${MODEL_VERSION}"
+            - name: NUM_STEPS
+              value: "${NUM_STEPS}"
+            - name: S3_ENDPOINT_URL
+              value: "${S3_ENDPOINT_URL}"
+            - name: AWS_ACCESS_KEY_ID
+              value: "${AWS_ACCESS_KEY_ID}"
+            - name: AWS_SECRET_ACCESS_KEY
+              value: "${AWS_SECRET_ACCESS_KEY}"
+            - name: BUCKET_NAME
+              value: "${BUCKET_NAME}"
+        restartPolicy: Never
+    backoffLimit: 4
+parameters:
+- name: MODEL_NAME
+  description: Name of the model to be trained
+  value: ForestMnist
+- name: MODEL_VERSION
+  description: Version of the model to be trained
+  value: "1"
+- name: S3_ENDPOINT_URL
+  description: Endpoint for S3 API object storage
+  required: true
+- name: AWS_ACCESS_KEY_ID
+  description: S3 access key id
+  required: true
+- name: AWS_SECRET_ACCESS_KEY
+  description: S3 secret key
+  required: true
+- name: BUCKET_NAME
+  description: A name of an S3 bucket where the model is stored
+  value: RHTE
+- name: NUM_STEPS
+  description: Number of training steps
+  value: "500"
