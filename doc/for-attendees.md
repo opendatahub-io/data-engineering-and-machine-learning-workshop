@@ -60,11 +60,11 @@ In order to get started with the Open Data Hub, you need to deploy it into your 
 
     To do that click `Control Panel` in the top right corner of the Jupyter UI and then click `Stop My Server`.
 
-2. Once you see the `Spawner Options` form again, change the notebook image to `s2i-tensorflow-notebook:3.6`.
+2. Once the server is stopped, click `Start My Server` and when you see the `Spawner Options` form again, change the notebook image to `s2i-tensorflow-notebook:3.6`.
 
 3. You will also need your OpenShift Token in the `TOKEN` environment variable. Go back to OpenShift console and click your username in top right corner and select `Copy Login Command`. You might be prompted to login again and after that you will see `Display Token` link. You will see your token after you click the link.
 
-    Copy the token and go back to JupyterHub UI. Put `TOKEN` in `Variable name` and paste the token into `Variable value` field and click `Start my Server` to apply these changes and start your Jupyter instance again.
+    Copy the token and go back to JupyterHub UI. Put `TOKEN` in `Variable name` and paste the token into `Variable value` field and click `Spawn` to apply these changes and start your Jupyter instance again.
 
     ![TF-configuration](../images/tf-config.png)
 
