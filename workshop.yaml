@@ -1,21 +1,25 @@
---- 
+---
 name: "Data Engineering, Analytics, and Machine Learning Infrastructure with OpenShift"
-authors: 
-  - 
+authors:
+  -
     name: "Anish Asthana"
     email: aasthana@redhat.com
-  - 
+  -
     name: "Juana Nakfour"
     email: jnakfour@redhatc.com
+  -
+    name: "Václav Pavlín"
+    email: "vasek@redhat.com"
 duration: "180 minutes"
-keywords: 
+keywords:
   - OpenShift
   - "machine learning"
   - AI
   - Jupyter
   - Python
+  - Tensorflow
   - Prometheus
   - Spark
   - Ceph
 
-repo: "https://github.com/anishasthana/odh-hybrid-data-workshop"
+repo: "https://github.com/opendatahub/data-engineering-and-machine-learning-workshop"

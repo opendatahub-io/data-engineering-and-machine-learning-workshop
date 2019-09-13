@@ -50,7 +50,7 @@ In order to get started with the Open Data Hub, you need to deploy it into your 
 3. JupyterHub is used in the Open Data Hub for spawning Jupyter notebook servers with pre-installed tools for creating AI and machine learning models. For more information on Jupyter notebooks, visit [https://jupyter.org/](https://jupyter.org/). Once logged in, click on `Start my Server`. You will be redirected to a page with a number of prefilled/selected fields. You don't need to change any settings -- just hit the `Spawn button`. This may take a few moments to complete and you will be redirected to a Jupyter notebook server. The default settings are as follows.
 ![defaults](../images/defaults.png)
 
-4. Open the `hybrid-data-engineering.ipynb` notebook by clicking on it. It can be found under `odh-hybrid-data-workshop/source/Notebooks/` This will open the notebook in Jupyter.  The notebook will contain the rest of the instructions for the tutorial.
+4. Open the `hybrid-data-engineering.ipynb` notebook by clicking on it. It can be found under `data-engineering-and-machine-learning-workshop.git/source/notebooks/` This will open the notebook in Jupyter.  The notebook will contain the rest of the instructions for the tutorial.
 
 5. Notebooks contain *cells*.  Run each cell in your notebook by clicking on the `>| Run` button or hitting `Shift+Enter` for each cell, starting with the first.  When a cell is actively running, it will have `[*]` on the side.  Some cells will take time to run.  Once done, it will have a number, such as `[1]`.  You can go through the entire notebook until all cells are run.
 
@@ -68,11 +68,11 @@ In order to get started with the Open Data Hub, you need to deploy it into your 
 
     ![TF-configuration](../images/tf-config.png)
 
-4. Open the `tf-training-serving.ipynb` notebook in `source/notebooks`. This notebook contains all the information needed to finish this section.
+4. Open the `tf-training-serving.ipynb` notebook in `data-engineering-and-machine-learning-workshop.git/source/notebooks`. This notebook contains all the information needed to finish this section.
 
 ## Streaming Data and Monitoring Infrastructure
 
-1. The `source/notebooks/` folder contains two other notebooks called `Kafka Consumer` and `Kafka Producer`. Open both of them and change `<PROJECT_NAME>` to the name of your project in the OpenShift Console. Then you can start running the cells in both of them. Leave the cells running. The producer notebook is simply writing to the Kafka cluster deployed by the ODH Operator on a sample topic, whereas the consumer is constantly reading all the messages that are written there.
+1. The `data-engineering-and-machine-learning-workshop.git/source/notebooks/` folder contains two other notebooks called `Kafka Consumer` and `Kafka Producer`. Open both of them and change `<PROJECT_NAME>` to the name of your project in the OpenShift Console. Then you can start running the cells in both of them. Leave the cells running. The producer notebook is simply writing to the Kafka cluster deployed by the ODH Operator on a sample topic, whereas the consumer is constantly reading all the messages that are written there.
 
 2. Once you have started running the Kafka notebooks, go back to the OpenShift console. Under `Networking -> Routes`, find the route named `Grafana` and click on it.
 

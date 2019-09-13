@@ -18,7 +18,7 @@ spec:
   runPolicy: Serial
   source:
     git:
-      uri: https://gitlab.com/vpavlin/hybrid-data-engineering-workshop.git
+      uri: https://gitlab.com/opendatahub/data-engineering-and-machine-learning-workshop.git
       ref: tf-job
     contextDir: source/tf-random-forest/serve
     type: Git
