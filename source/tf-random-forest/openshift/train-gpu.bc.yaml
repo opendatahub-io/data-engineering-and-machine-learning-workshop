@@ -26,6 +26,7 @@ spec:
       from:
         kind: ImageStreamTag
         name: python-36-ubi7:10.0-cudnn7-devel-ubi7
+        namespace: openshift
     type: Source
   triggers:
     - type: ConfigChange
