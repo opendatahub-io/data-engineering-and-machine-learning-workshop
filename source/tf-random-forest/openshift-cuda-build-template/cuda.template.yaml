@@ -7,6 +7,7 @@ items:
       appName: 10.0-cuda-chain-ubi7
       appTypes: cuda-build-chain
     name: cuda
+    namespace: openshift
   spec:
     lookupPolicy:
       local: true
@@ -17,6 +18,7 @@ items:
       appName: 10.0-cuda-chain-ubi7
       appTypes: cuda-build-chain
     name: python-36-ubi7
+    namespace: openshift
   spec:
     lookupPolicy:
       local: true
@@ -28,6 +30,7 @@ items:
       appName1: 10.0-base-ubi7
       appTypes: cuda-build-chain
     name: 10.0-base-ubi7
+    namespace: openshift
   spec:
     output:
       to:
@@ -71,6 +74,7 @@ items:
       appName1: 10.0-runtime-ubi7
       appTypes: cuda-build-chain
     name: 10.0-runtime-ubi7
+    namespace: openshift
   spec:
     output:
       to:
@@ -109,6 +113,7 @@ items:
       appName1: 10.0-cudnn7-runtime-ubi7
       appTypes: cuda-build-chain
     name: 10.0-cudnn7-runtime-ubi7
+    namespace: openshift
   spec:
     output:
       to:
@@ -147,6 +152,7 @@ items:
       appName1: 10.0-devel-ubi7
       appTypes: cuda-build-chain
     name: 10.0-devel-ubi7
+    namespace: openshift
   spec:
     output:
       to:
@@ -185,6 +191,7 @@ items:
       appName1: 10.0-cudnn7-devel-ubi7
       appTypes: cuda-build-chain
     name: 10.0-cudnn7-devel-ubi7
+    namespace: openshift
   spec:
     output:
       to:
@@ -223,6 +230,7 @@ items:
       appName1: python-36-ubi7
       appTypes: cuda-build-chain
     name: python-36-ubi7
+    namespace: openshift
   spec:
     output:
       to:
