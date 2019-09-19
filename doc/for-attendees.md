@@ -56,15 +56,15 @@ In order to get started with the Open Data Hub, you need to deploy it into your 
 
 ## Training and Serving Tensorflow model
 
-1. You used `s2i-spark-scipy-notebook:3.6` for the previous part. As you will work with Tensorflow in this section, you need to switch the notebook image to `s2i-tensorflow-notebook:3.6` to run your container from an image with the correct preinstalled dependencies.
+1. A this point you will need to stop and start your Jupyter server to add a `TOKEN` environment variable.
 
     To do that click `Control Panel` in the top right corner of the Jupyter UI and then click `Stop My Server`.
 
-2. Once the server is stopped, click `Start My Server` and when you see the `Spawner Options` form again, change the notebook image to `s2i-tensorflow-notebook:3.6`.
+2. Once the server is stopped, click `Start My Server` and you will see the `Spawner Options` form again.
 
-3. You will also need your OpenShift Token in the `TOKEN` environment variable. Go back to OpenShift console and click your username in top right corner and select `Copy Login Command`. You might be prompted to login again and after that you will see `Display Token` link. You will see your token after you click the link.
+3. Go back to OpenShift console and click your username in top right corner and select `Copy Login Command`. You might be prompted to login again and after that you will see `Display Token` link. You will see your token after you click the link.
 
-    Copy the token and go back to JupyterHub UI. Put `TOKEN` in `Variable name` and paste the token into `Variable value` field and click `Spawn` to apply these changes and start your Jupyter instance again.
+    Copy the token and go back to JupyterHub UI. Put the string `TOKEN` in `Variable name` and paste the token into `Variable value` field and click `Spawn` to apply these changes and start your Jupyter instance again.
 
     ![TF-configuration](../images/tf-config.png)
 
@@ -72,11 +72,13 @@ In order to get started with the Open Data Hub, you need to deploy it into your 
 
 ## Streaming Data and Monitoring Infrastructure
 
-1. The `data-engineering-and-machine-learning-workshop.git/source/notebooks/` folder contains two other notebooks called `Kafka Consumer` and `Kafka Producer`. Open both of them and change `<PROJECT_NAME>` to the name of your project in the OpenShift Console. Then you can start running the cells in both of them. Leave the cells running. The producer notebook is simply writing to the Kafka cluster deployed by the ODH Operator on a sample topic, whereas the consumer is constantly reading all the messages that are written there.
+1. The `data-engineering-and-machine-learning-workshop.git/source/notebooks/` folder contains two other notebooks called `Kafka Producer` and `Kafka Consumer`. Open both of them (start with the producer) and start running the cells in both of them. Leave the cells running. 
 
-2. Once you have started running the Kafka notebooks, go back to the OpenShift console. Under `Networking -> Routes`, find the route named `Grafana` and click on it.
+    The producer notebook is simply writing to the Kafka cluster deployed by the ODH Operator on a sample topic, whereas the consumer is constantly reading all the messages that are written there.
 
-3. Download `Spark Metrics.json` found under `source/dashboards/` to your local environment. Now, click on the `Home` button towards the top-left of the Grafana landing page.
+2. Once you have started running the Kafka notebooks, go back to the OpenShift console. Under `Networking -> Routes`, find the routes named `Grafana` and `Prometheus`, open the URLs for both of them and login with your OpenShift credentials.
+
+3. Once you are in Grafana, download `Spark Metrics.json` found under `source/dashboards/` to your local environment. Now, click on the `Home` button towards the top-left of the Grafana landing page.
 ![grafana-home](../images/grafana-home.png)
 
 4. Finally, click on `Import Dashboard -> Upload.json File` and upload `Spark Metrics.json` to see how metrics changed over time as the notebooks ran.
