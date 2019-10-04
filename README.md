@@ -6,7 +6,8 @@ This repository contains the materials and resources you need for a workshop.
 
 * a [`doc`](./doc) folder, containing two files:
     1. [`for-presenters.md`](./doc/for-presenters.md) Information to aid the presenter of the workshop. 
-    2. [`abstract.md`](./doc/abstract.md) The workshop abstract.
+    2. [`for-attendees.md`](./doc/for-attendees.md) Information for the attendee of the workshop. 
+    3. [`abstract.md`](./doc/abstract.md) The workshop abstract.
 
 * a [`deploy`](./deploy) folder, containing: 
     1. [`deploy.md`](./deploy/deploy.md) Instructions on how to deploy the workshop.
