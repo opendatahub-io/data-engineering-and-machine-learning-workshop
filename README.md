@@ -15,8 +15,8 @@ The repository contains the following contents:
     2. a [`templates`](./deploy/templates) folder, containing any OpenShift templates required to deploy the workshop, as well as any Ansible roles and playbooks.
 
 * a [`slides`](./slides) folder containing:
-    1. [`rendered`](./rendered) which should contain a [slides.pdf](./rendered/slides.pdf) file of the slides, as well as any rendered videos which are to be shown in the workshop
-    2. [`source`](./source) containing the source for the slides, either as a [powerpoint](./source/slides.pptx), google doc or keynote file.      
+    1. [`rendered`](./slides/rendered) which should contain a [slides.pdf](./slides/rendered/data-engineering-and-machine-learning-workshop.pdf) file of the slides, as well as any rendered videos which are to be shown in the workshop
+    2. [`source`](./slides/source) containing the source for the slides, either as a [powerpoint](./slides/source/data-engineering-and-machine-learning-workshop.pptx), google doc or keynote file.      
 
 * a [`README.md`](.README.md) file, containing basic, high-level information about the lab. It should contain the lab title, abstract, keywords, intended workshop length(s) and any other relevant information. 
 
