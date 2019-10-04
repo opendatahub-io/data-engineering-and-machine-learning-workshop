@@ -1,35 +1,28 @@
-# Reproducible workshop materials
+# Data Engineering and Machine Learning on OpenShift
 
-This repository contains the materials and resources you need to create a reproducible workshop.
+In this hands-on lab, attendees will understand how to use OpenShift Container Platform, OpenShift Container Storage, and the Open Data Hub to provide self-service provisioning of data processing, analytics, and machine learning services to organizations.
 
-To get started with your own reproducible workshop, clone this repo and make sure your put all the required resources into your own copy. Many of the documents contain prompts for suggested content - take a look!
+This repository contains the materials and resources you need for a workshop.
 
 The repository contains the following contents: 
 
 * a [`doc`](./doc) folder, containing two files:
-    1. [`for-presenters.md`](./doc/for-presenters.md) should contain information to aid the presenter of the workshop - from background material adding context, to more general information on the structure and flow of the workshop, detailed information about the workshop content and any other suggestions for the presenter. 
-    2. [`abstract.md`](./doc/abstract.md) should contain the workshop abstract.
+    1. [`for-presenters.md`](./doc/for-presenters.md) Information to aid the presenter of the workshop. 
+    2. [`abstract.md`](./doc/abstract.md) The workshop abstract.
 
 * a [`deploy`](./deploy) folder, containing: 
-    1. [`deploy.md`](./deploy/deploy.md) which gives clear instructions on how to deploy the workshop both within and outside of RHPDS.
-    2. a [`templates`](./deploy/templates) folder, containing any OpenShift templates required to deploy the workshop, as well as any Ansible roles and playbooks.
+    1. [`deploy.md`](./deploy/deploy.md) Instructions on how to deploy the workshop.
+    2. [`templates`](./deploy/templates) OpenShift templates required to deploy the workshop, as well as any Ansible roles and playbooks.
 
 * a [`slides`](./slides) folder containing:
-    1. [`rendered`](./slides/rendered) which should contain a [slides.pdf](./slides/rendered/data-engineering-and-machine-learning-workshop.pdf) file of the slides, as well as any rendered videos which are to be shown in the workshop
-    2. [`source`](./slides/source) containing the source for the slides, either as a [powerpoint](./slides/source/data-engineering-and-machine-learning-workshop.pptx), google doc or keynote file.      
+    1. [`rendered`](./slides/rendered) [data-engineering-and-machine-learning-workshop.pdf](./slides/rendered/data-engineering-and-machine-learning-workshop.pdf) file of the slides, as well as any rendered videos which are to be shown in the workshop.
+    2. [`source`](./slides/source) [data-engineering-and-machine-learning-workshop.pptx](./slides/source/data-engineering-and-machine-learning-workshop.pptx) source file for the slides.      
 
-* a [`README.md`](.README.md) file, containing basic, high-level information about the lab. It should contain the lab title, abstract, keywords, intended workshop length(s) and any other relevant information. 
-
-* a [`workshop.yaml`](./workshop.yaml) file, holding the following machine readable metadata:
-    - name
-    - authors
-    - workshop duration
-    - source repo
-    - keywords
+* a [`README.md`](.README.md) file, containing basic, high-level information about the lab.
 
 * a [`source`](./source) folder, containing:
-    1. any code or Jupyter notebooks required to give the workshop
-    2. data needed for the workshop
+    1. Code required in the workshop.
+    2. Data needed for the workshop.
     3. a [`README.md`](./source/README.md) file, explaining all of the contents of the [`source`](./source) folder. 
 
 
