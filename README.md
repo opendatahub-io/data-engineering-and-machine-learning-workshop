@@ -4,8 +4,6 @@ In this hands-on lab, attendees will understand how to use OpenShift Container P
 
 This repository contains the materials and resources you need for a workshop.
 
-The repository contains the following contents: 
-
 * a [`doc`](./doc) folder, containing two files:
     1. [`for-presenters.md`](./doc/for-presenters.md) Information to aid the presenter of the workshop. 
     2. [`abstract.md`](./doc/abstract.md) The workshop abstract.
