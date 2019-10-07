@@ -1,10 +1,7 @@
 # Workshop Abstract
 
-As data is exponentially growing in organizations, there is an increasing need to consolidate silos of information into a single source of truth, a Data Lake to feed hungry Analytics and Machine Learning Engines that can gather insight at scale. In this workshop, we will detail how to architect data infrastructure services using Red Hat OpenShift, Ceph Storage, Spark, Kafka, Prometheus, and Seldon.
-As part of the workshop, we will deploy the Open Data Hub and cover the entire end-to-end infrastructure. Some of the things we will demonstrate are:
+In this hands-on lab, attendees will understand how to use OpenShift Container Platform, OpenShift Container Storage, and the Open Data Hub to provide self-service provisioning of data processing, analytics, and machine learning services to organizations. We will explain how to consolidate data into a 'data lake' and extend the S3A filesystem for a hybrid cloud data experience. Realizing many organizations already have large volumes outside of object storage, we will go over different approaches to migrate data from existing data sources to object storage (eg. relational databases, HDFS, etc), as well as how to access them in-situ, or do federated queries against datasets stored across disparate storage technologies.
 
-* Deployment of a Ceph S3 instance for storage of data.
-* Usage of Jupyter notebooks and spark to interact with data sets using the S3A filesystem client on different clouds.
-* Using Spark schema detection and SparkSQL to query and transform stored data.
-* Training and deployment of a simple model as well as the supporting messaging tools for interacting with the model.
-* Monitoring of the entire infrastructure as well as deployed models with Prometheus and Grafana.
+The hands-on portion will have attendees deploy the Open Data Hub, use Jupyter notebooks to walk through interacting with data sets using boto and S3A, then using Spark schema detection and SparkSQL to query semi-structured data. Attendees will learn how to develop and train a model using popular frameworks such as Tensorflow, serve the model as a micro-service, and use Kafka to stream data for inference.  Finally we will show how to train models using GPUs and Jupyter notebooks.
+
+Participants will learn how to administer their own Open Data Hub demonstrations and workshops that will include tutorials, examples, architecture diagrams and more using educational materials at the Open Data Hub community. These self-service workshops can be used for general knowledge, training, customer meetings and partner discussions.
