@@ -14,6 +14,8 @@ _LOGGER.setLevel(logging.INFO)
 
 class ForestMnist(object):
     def __init__(self):
+        self.loaded = False
+
         self.model_name = os.environ.get('MODEL_NAME', '').lower()
         self.model_version = os.environ.get('MODEL_VERSION', '0').lower()
 
@@ -23,13 +25,14 @@ class ForestMnist(object):
         self.access_key_id = os.environ.get('AWS_ACCESS_KEY_ID', '')
         self.secret_key = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
         self.bucket_name = os.environ.get('BUCKET_NAME', '')
-        
+
         if len(self.model_name) == 0:
             _LOGGER.error("Provide path to saved model in $MODEL_PATH env var")
             sys.exit(1)
 
+    def load(self):
         self.prep_model()
-            
+
         tf.reset_default_graph()
         self.sess = tf.Session()
         saver = tf.train.import_meta_graph("model/%s.meta" % (self.model_name_version))
@@ -38,8 +41,12 @@ class ForestMnist(object):
         graph = tf.get_default_graph()
         self.x = graph.get_tensor_by_name("X:0")
         self.y = graph.get_tensor_by_name("probabilities:0")
+        self.loaded = True
 
     def predict(self, X, feature_names):
+        if not self.loaded:
+            self.load()
+
         predictions = self.sess.run(self.y, feed_dict={self.x: X})
         return predictions
 
@@ -53,5 +60,5 @@ class ForestMnist(object):
             _LOGGER.error("Failed to unpack %s" % tarball)
             time.sleep(10000)
             raise Exception
-        
+
         _LOGGER.info("Unpacked the model")
