@@ -4,8 +4,6 @@ This workshop  is deployed using the OpenDatahub Operator found [here](https://g
 
 ## Instructions to deploy
 
-1. Clone the opendatahub-operator repository.
-2. Copy `my_environment_cr.yaml` to the root of the opendatahub-operator repository.
-3. Follow the instructions for installation as found at [manual-installation](https://gitlab.com/opendatahub/opendatahub-operator/blob/master/docs/manual-installation.adoc).
-4. Follow the instructions for Seldon and Kafka as found in [docs](https://gitlab.com/opendatahub/opendatahub-operator/tree/master/docs).
-5. To Deploy Ceph, follow the instructions under `Ceph installation with the Rook operator` in the [reference architecture](https://opendatahub.io/arch.html)
+1. Follow the instructions for installation as found at opendatahub.io [quick-installation](http://opendatahub.io/docs/getting-started/quick-installation.html).
+1. Use the provided [KfDef](templates/data-engineering-workshop.kfdef.yaml) to deploy ODH components used in this workshop
+1. To Deploy Ceph Object Storage, follow the instructions under `Administration -> Advanced Installation` in [Object Storage](http://opendatahub.io/docs/administration/advanced-installation/object-storage.html)
